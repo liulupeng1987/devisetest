@@ -29,11 +29,9 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.default_url_options = { host: 'localhost:3000'}
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :letter_opener_web
-  # host = 'localhost:3000' # Don't use this literally; use your local dev host instead
-  # config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  config.action_mailer.delivery_method = :smtp
 
-  # config.action_mailer.delivery_method = :smtp
+
   # config.action_mailer.perform_deliveries = true
   # config.action_mailer.smtp_settings = {
   #   address: "smtp.mailgun.com",
@@ -44,6 +42,13 @@ Rails.application.configure do
   #   user_name: ENV["liulupeng3385@gmail.com"],
   #   password: ENV["Newlystar2007"]
   # }
+  #
+  # :authentication => :plain,
+  #   :address => "smtp.mailgun.org",
+  #   :port => 587,
+  #   :domain => "mg.chinapharmabook.com",
+  #   :user_name => "postmaster@mg.chinapharmabook.com",
+  #   :password => "c817738584164a984751f3acfc6e5a93"
 
   config.action_mailer.perform_caching = false
 
