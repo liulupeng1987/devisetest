@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410143051) do
+ActiveRecord::Schema.define(version: 20170501021737) do
 
   create_table "topics", force: :cascade do |t|
     t.string   "title"
@@ -32,7 +32,34 @@ ActiveRecord::Schema.define(version: 20170410143051) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "username"
+    t.string   "surname"
+    t.string   "givenname"
+    t.string   "gender"
+    t.string   "company"
+    t.string   "occupation"
+    t.text     "companyprofile"
+    t.string   "website"
+    t.text     "address"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "whatsapp"
+    t.string   "linkedin"
+    t.string   "gmail"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer  "invitation_limit"
+    t.string   "invited_by_type"
+    t.integer  "invited_by_id"
+    t.integer  "invitations_count",      default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
+    t.index ["invitations_count"], name: "index_users_on_invitations_count"
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
